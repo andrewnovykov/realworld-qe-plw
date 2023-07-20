@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
 
 test.describe('Authorisation', () => {
 	const newUser = uid(5)
-	const newEmail = uid(5) + '@gmail.com'
+	const newEmail = uid(5)
 	test('Registrated with valid credention @QALA-2', async ({ page }) => {
 		await page.getByRole('link', { name: 'Sign up' }).click()
 		await page.getByPlaceholder('Your Name').type(`myname${newUser}`, { delay: 100 })
@@ -36,5 +36,4 @@ test.describe('Authorisation', () => {
 		await page.getByRole('button', { name: 'Sign up' }).click()
 		await expect(page.getByText('Email already exists.. try logging in')).toBeVisible()
 	})
-	
 })
