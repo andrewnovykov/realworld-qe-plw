@@ -1,6 +1,6 @@
 import { test, expect, type Page } from '@playwright/test'
-import { USER_NAME, PASSWORD, EMAIL } from '../../environment.config'
-import { login } from '../../src/helpers/ui/login-helpers'
+import { USER_NAME, PASSWORD, EMAIL } from '../../../environment.config'
+import { login } from '../../../src/helpers/ui/login-helpers'
 
 test.beforeEach(async ({ page }) => {
 	await page.goto('/')
