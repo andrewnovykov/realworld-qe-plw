@@ -1,5 +1,5 @@
 import { expect, request, test } from '@playwright/test'
-export const Login = async (email, password) => {
+export const loginAPI = async (email, password) => {
 	const context = await request.newContext({
 		baseURL: 'http://qafromla.herokuapp.com',
 	})
@@ -19,4 +19,3 @@ export const Login = async (email, password) => {
 	const accessToke = user.token
 	return accessToke
 }
- 

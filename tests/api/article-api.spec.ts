@@ -1,7 +1,7 @@
 import { EMAIL, PASSWORD } from '../../environment.config'
 import { expect, request, test } from '@playwright/test'
 
-import { Login } from '../../src/helpers/api/get-token'
+import { loginAPI } from '../../src/helpers/api/get-token'
 import { uid } from 'uid'
 
 test.describe('Article', () => {
@@ -18,7 +18,7 @@ test.describe('Article', () => {
 				tagList: [tags],
 			},
 		}
-		const accessToken = await Login(EMAIL, PASSWORD)
+		const accessToken = await loginAPI(EMAIL, PASSWORD)
 		const response = await request.post('api/articles', {
 			headers: {
 				Accept: 'application/json',

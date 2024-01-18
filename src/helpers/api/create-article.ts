@@ -1,6 +1,6 @@
 import { EMAIL, PASSWORD } from '../../../environment.config'
 
-import { Login } from './get-token'
+import { loginAPI } from './get-token'
 import { request } from '@playwright/test'
 
 export const createArticleApi = async (title, description, body, tagList) => {
@@ -15,7 +15,7 @@ export const createArticleApi = async (title, description, body, tagList) => {
 			tagList,
 		},
 	}
-	const accessToken = await Login(EMAIL, PASSWORD)
+	const accessToken = await loginAPI(EMAIL, PASSWORD)
 	const response = await context.post('api/articles', {
 		headers: {
 			Accept: 'application/json',
